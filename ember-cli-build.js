@@ -8,6 +8,14 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('bower_components/moment/moment.js');
+  
+  app.import('bower_components/lodash/dist/lodash.min.js');
+
+  app.import('bower_components/air-datepicker/dist/css/datepicker.min.css');
+  app.import('bower_components/air-datepicker/dist/js/datepicker.min.js');
+  app.import('bower_components/air-datepicker/dist/js/i18n/datepicker.pt-BR.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

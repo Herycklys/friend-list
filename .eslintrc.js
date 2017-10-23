@@ -9,5 +9,11 @@ module.exports = {
     browser: true
   },
   rules: {
+  },
+  globals: {
+    moment: true,
+    $: true,
+    _: true,
+    Ember: true
   }
 };

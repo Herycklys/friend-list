@@ -1,0 +1,28 @@
+.col-center {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#list-amigos tr {
+    cursor: pointer;
+}
+
+#link-close-amigos {
+    font-size: 20pt;
+}
+
+#button-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+#alert-usuario-salvo, #alert-error-salvo {
+    display: none;
+}

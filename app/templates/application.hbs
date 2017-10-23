@@ -1,5 +1,16 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="text-center p-2 col-md-12">
+            <h2 class="d-inline">Lista de amigos</h2> <i>1.0.0</i>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-center">
+                    <div class="card">
+                        {{outlet}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

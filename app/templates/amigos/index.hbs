@@ -1,0 +1,32 @@
+<div class="card-header">
+    <div class="form-row">
+        <div class="col-md-4 m-2">
+            {{input class="form-control" id="field-search" placeholder="Buscar por usuário" value=nome}}
+        </div>
+        <div class="col-md-4 m-2">
+            {{#link-to 'amigos.novo' class="btn btn-success"}}Adicionar{{/link-to}}
+        </div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-hover" id="list-amigos">
+            <thead>
+                <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Amigo desde</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each model as |amigo|}}
+                    <tr {{ action "showAmigo" amigo.id }}>
+                        <td>{{ amigo.name }}</td>
+                        <td>{{ amigo.lastname }}</td>
+                        <td>{{ date-format amigo.friendsSince }}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

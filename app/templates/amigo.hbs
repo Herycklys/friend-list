@@ -1,0 +1,75 @@
+<div class="card-body">
+    <div class="col-md-12 text-right">
+        {{#link-to "amigos" id="link-close-amigos"}}
+        <span aria-hidden="true">&times;</span>{{/link-to}}
+    </div>
+
+    <div class="alert alert-success" id="alert-usuario-salvo" role="alert">
+        Amigo salvo
+    </div>
+
+    <div class="alert alert-danger" id="alert-error-salvo" role="alert">
+        Erro inesperado
+    </div>
+
+    <div class="form-group">
+        <label for="nome-amigo">Nome</label>
+        {{input class=(input-validate-class name_error.has_error) id="nome-amigo" placeholder="Nome" value=model.name readonly=request_active}}
+        <div class="invalid-feedback">
+            {{ name_error.message }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="sobrenome-amigo">Sobrenome</label>
+        {{input class=(input-validate-class lastname_error.has_error) id="sobrenome-amigo" placeholder="Sobrenome" value=model.lastname
+        readonly=request_active}}
+        <div class="invalid-feedback">
+            {{ lastname_error.message }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inicio-amizade-amigo">Amigo desde</label>
+        {{date-picker idAttr="inicio-amizade-amigo" placeholder="Inicio da amizade" val=model.friendsSince error=friendsSince_error.message}}
+    </div>
+
+    <div class="form-group text-center">
+        <button class="btn btn-primary col-md-6" {{action "salvar" }} disabled={{request_active}}>{{{if request_active "Salvando
+            <i class='fa fa-circle-o-notch fa-spin'></i>" 'Salvar' }}} </button>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-sm" id="modal-salvo-sucesso" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <h5 class="text-success">Amigo cadastrado</h5>
+
+                <a href="/amigos" data-dismiss="modal" {{action "linkToList"}}> Voltar pra listagem de amigos </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-sm" id="modal-confirmar-edicao" tabindex="-1" role="dialog" data-backdrop="static"
+    data-keyboard="false" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h5>Deseja realmente salvar?</h5>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center col-md-12">
+                    <button type="button" class="btn btn-primary w-40" data-dismiss="modal" {{action "confirmModalSave"}}>Sim</button>
+                    <button type="button" class="btn btn-secondary w-40" data-dismiss="modal" {{action "cancelaEdicao"}}>Não</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

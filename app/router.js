@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('amigos', function() {
+    this.route('novo');
+  });
+  this.route('amigo', { path: '/amigo/:amigos_id' }, function() {});
 });
 
 export default Router;
