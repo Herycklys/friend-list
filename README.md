@@ -1,6 +1,7 @@
-# friend-list
+# Lista de amigos
 
-Lista de amigos.
+## Observações
+* Ao fazer uma busca na API informada, com o paramêtro `name`, os valores não estão sendo filtrados.
 
 ## Instalaçao
 

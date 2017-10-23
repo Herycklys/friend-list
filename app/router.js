@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('novo');
   });
   this.route('amigo', { path: '/amigo/:amigos_id' }, function() {});
+  this.route('error-404', { path: '/*path' });
 });
 
 export default Router;
