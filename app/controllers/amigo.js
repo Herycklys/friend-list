@@ -50,9 +50,7 @@ export default Controller.extend({
                 that.salvoSucesso();
 
                 that.set('request_active', false);
-            }).catch(e => {
-                console.error('ERROR ->', e);
-
+            }).catch(() => {
                 that.salvoError();
 
                 that.set('request_active', false);

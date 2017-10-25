@@ -3,13 +3,20 @@ import DS from 'ember-data';
 export default DS.JSONSerializer.extend({
     primaryKey: '_id',
     normalize(typeClass, hash) {
-        let fields = Ember.get(typeClass, 'fields');
+        let fields = Ember.get(typeClass, 'fields'),
+            hasAllFields = true;
 
         if(!hash)
             throw new Error('NO_RECORD');
 
+        fields.forEach(field => {
+            if( hasAllFields && !_.has( hash, field ) ) {
+                hasAllFields = false;
+            }
+        });
+
         if(
-            fields.every(field => _.has( hash, field ))
+            hasAllFields
         ) throw new Error('UNEXPECTED_ERROR');
 
         return this._super.apply(this, arguments);
@@ -30,7 +37,7 @@ export default DS.JSONSerializer.extend({
             data: payload.friend
         }
     },
-    normalizeCreateRecordResponse(store, primaryModelClass, payload, id) {
+    normalizeCreateRecordResponse(store, primaryModelClass, payload) {
         payload.friend.id = payload.friend._id;
 
         return {
