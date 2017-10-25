@@ -1,0 +1,23 @@
+{
+  "name": "friend-list",
+  "description": "Small description for friend-list goes here",
+  "main": "",
+  "authors": [
+    "Herycklys <hgoncalves@aktienow.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Herycklys/friend-list",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1",
+    "air-datepicker": "^2.2.3",
+    "components-font-awesome": "^4.7.0"
+  }
+}
